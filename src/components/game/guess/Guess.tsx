@@ -16,7 +16,9 @@ interface GuessProps {
     displayHint: boolean;
 }
 
-type MovieType = { movies: { selectedMovie: { name: string } } };
+interface MovieType {
+    movies: { selectedMovie: { name: string } }
+}
 
 const YELLOW = '#ECEC34';
 const GREY = '#5C5C4F';

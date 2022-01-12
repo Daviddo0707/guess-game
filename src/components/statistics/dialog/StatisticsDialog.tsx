@@ -8,7 +8,7 @@ interface StatisticsModalProps {
 }
 
 interface StatisticsObject {
-    [key: string]: unknown
+    [key: string]: {}
 }
 
 type StatisticsType = { movies: { rightGuesses: number, wrongGuesses: number, hintUse: number } };
@@ -25,13 +25,7 @@ const StatisticsDialog = ({open, handleClose}: StatisticsModalProps) => {
         "Wrong guesses": wrongGuesses,
         "Hints use": hintUse
     }
-    const StatisticsToRender = Object.keys(statistics).map((key: string) => {
 
-        return (<Grid container key={key} sx={{mb: "10px"}}>
-            <Grid item xs={7} sx={{fontWeight: "bold"}}> {key}:</Grid>
-            <Grid item xs={5} sx={{fontWeight: "10"}}> {statistics[key]}</Grid>
-        </Grid>)
-    });
     return (
         <Dialog onClose={handleClose} open={open} fullWidth maxWidth="xs">
             <DialogTitle>Your game statistics</DialogTitle>
@@ -46,7 +40,13 @@ const StatisticsDialog = ({open, handleClose}: StatisticsModalProps) => {
                 <CloseIcon/>
             </IconButton>
             <DialogContent>
-                {StatisticsToRender}
+                {Object.keys(statistics).map((key: string) => {
+
+                    return (<Grid container key={key} sx={{mb: "10px"}}>
+                        <Grid item xs={7} sx={{fontWeight: "bold"}}> {key}:</Grid>
+                        <Grid item xs={5} sx={{fontWeight: "10"}}> {statistics[key]}</Grid>
+                    </Grid>)
+                })}
             </DialogContent>
         </Dialog>
     )

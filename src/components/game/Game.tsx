@@ -7,7 +7,9 @@ import Hint from './hint/Hint';
 import GameInfo from "../game-info/GameInfo";
 import {Grid} from "@mui/material";
 
-type MoviesType = { movies: { movieList: [] } }
+interface MoviesType {
+    movies: { movieList: [] }
+}
 
 const Game = () => {
 

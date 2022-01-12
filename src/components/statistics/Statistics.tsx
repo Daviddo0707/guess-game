@@ -1,5 +1,5 @@
 import {Fragment, useState} from "react";
-import StatisticsDialog from './dailog/StatisticsDialog';
+import StatisticsDialog from './dialog/StatisticsDialog';
 import * as Styled from './Statistics.styled';
 
 const Statistics = () => {

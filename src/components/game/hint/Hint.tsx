@@ -6,7 +6,9 @@ interface HintProps {
     displayHint: boolean
 }
 
-type MovieOverViewType = { movies: { selectedMovie: { overview: string } } };
+interface MovieOverViewType {
+    movies: { selectedMovie: { overview: string } }
+}
 
 const Hint = ({displayHint}: HintProps) => {
 
@@ -16,7 +18,7 @@ const Hint = ({displayHint}: HintProps) => {
         <Grid container justifyContent="center">{displayHint ?
             <div>
                 <Typography variant="h4" gutterBottom component="div">Hint:</Typography>
-                <Styled.HintText>  {overview}</Styled.HintText>
+                <Styled.HintText>{overview}</Styled.HintText>
             </div>
             : null}
         </Grid>

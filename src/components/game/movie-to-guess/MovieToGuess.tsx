@@ -7,7 +7,9 @@ interface MovieToGuessProps {
     gameOver: boolean;
 }
 
-type SelectedMovieType = { movies: { selectedMovie: { name: string } } }
+interface SelectedMovieType {
+    movies: { selectedMovie: { name: string } }
+}
 
 const MovieToGuess = ({gameOver}: MovieToGuessProps) => {
 
@@ -16,7 +18,8 @@ const MovieToGuess = ({gameOver}: MovieToGuessProps) => {
 
     useEffect(() => {
         if (selectedMovie.name) {
-            setMovie(gameOver ? selectedMovie.name : hideRandomLetters(removeSpecials(selectedMovie.name)));
+            const WordToShow = gameOver ? selectedMovie.name : hideRandomLetters(removeSpecials(selectedMovie.name));
+            setMovie(WordToShow);
         }
     }, [selectedMovie, gameOver]);
 
